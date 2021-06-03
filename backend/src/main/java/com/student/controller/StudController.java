@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.student.entity.Student;
 import com.student.service.StudentService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @RestController
@@ -19,12 +20,15 @@ public class StudController {
 	private StudentService studservice;
 
 	@GetMapping("fetch")
+	@CrossOrigin
+	
 	public List<Student> getStudentDetailse() {
 
 		return studservice.fetchStudent() ;
 	}
 
 	@PostMapping("insert")
+	@CrossOrigin
 	public Student insertStudent(@RequestBody Student stu) {
 
 		return studservice.saveStudent(stu);
